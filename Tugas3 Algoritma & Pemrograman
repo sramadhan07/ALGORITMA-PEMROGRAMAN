@@ -1,0 +1,67 @@
+import java.util.Scanner;
+
+public class arraygaji {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+       double[] arraygaji = {5000000, 6500000, 9500000};
+       double[] arraylembur = {0.30, 0.32, 0.34, 0.36, 0.38};
+
+       
+        String golongan;
+        int jamlembur;
+        double gajipokok =0;
+        double persentase = 0;
+        double gajilembur = 0;
+        double totalpenghasilan = 0;
+
+        
+        System.out.print("SILAHKAN MASUKKAN GOLONGAN ANDA (A / B / C): ");
+        golongan = input.nextLine().trim().toUpperCase();
+
+        
+
+        if (golongan.equals("A")) {
+            gajipokok = arraygaji[0];
+        } else if (golongan.equals("B")) {
+            gajipokok = arraygaji[1];
+        } else if (golongan.equals("C")) {
+            gajipokok = arraygaji[2];
+        } else {
+            System.out.println("Golongan tidak valid!");
+        }
+
+      
+        System.out.print("MASUKKAN JAM LEMBUR ANDA =  ");
+        
+        jamlembur = input.nextInt(); 
+
+     
+        if (jamlembur == 1) {
+            persentase = arraylembur[0];
+        } else if (jamlembur == 2) {
+            persentase = arraylembur[1];
+        } else if (jamlembur == 3) {
+            persentase = arraylembur[2];
+        } else if (jamlembur == 4) {
+            persentase = arraylembur[3];
+        } else if (jamlembur >= 5) {
+            persentase = arraylembur[4];
+        } else {
+            persentase = 0.0; 
+        }
+
+      
+        gajilembur = persentase * gajipokok;
+        totalpenghasilan = gajipokok + gajilembur;
+
+
+        System.out.println("RINCIAN PENGHASILAN KARYAWAN");
+        System.out.println("Golongan          : " + golongan);
+        System.out.println("Jam Lembur        : " + jamlembur );
+        System.out.println("Gaji Lembur       : " + (int) gajilembur);
+        System.out.println("TOTAL PENGHASILAN : " + (int) totalpenghasilan);
+
+        input.close();
+    }
+}
